@@ -1,0 +1,33 @@
+<html>
+<head>
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script src="https://code.createjs.com/tweenjs-0.6.2.min.js"></script>
+    <script>
+        function init() {
+            var stage = new createjs.Stage("demoCanvas");
+            var circle = new createjs.Shape();
+            circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
+            circle.x = 100;
+            circle.y = 100;
+            stage.addChild(circle);
+
+            var mouse = {
+                x: 0,
+                y: 0
+            };
+
+
+            stage.addEventListener("stagemousemove", function (event) {
+                circle.x = event.stageX;
+                circle.y = event.stageY;
+
+                stage.update();
+            });
+            stage.update();
+        }
+    </script>
+</head>
+<body onload="init();">
+<canvas id="demoCanvas" width="500" height="200"></canvas>
+</body>
+</html>
